@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectOut Technologies</title>
+    
+    <!-- MINIMAL INFINITY LOGO FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z' stroke='%2338BDF8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><circle cx='12' cy='12' r='1.5' fill='%23FFF'/></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CORE VARIABLES */
+        :root {
+            --bg-main: #050505;
+            --bg-card: #121214;
+            --bg-card-hover: #1c1c1e;
+            --primary: #2563EB;
+            --accent: #38BDF8;
+            --text-main: #FFFFFF;
+            --text-muted: #A1A1AA;
+            --border-rgba: rgba(255, 255, 255, 0.08);
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --fs-display: clamp(2.3rem, 5vw + 1rem, 5rem);
+            --fs-h1: clamp(2rem, 4vw + 1rem, 3.5rem);
+            --fs-h2: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+            --fs-h3: clamp(1.25rem, 2vw + 1rem, 1.75rem);
+            --fs-body-lg: 1.125rem;
+            --fs-sm: 0.875rem;
+        }
+
+        /* GLOBAL */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-main); color: var(--text-main); line-height: 1.6; overflow-x: hidden; position: relative; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+
+        /* HEADER */
+        .site-header { position: fixed; top: 0; width: 100%; background: rgba(5,5,5,0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border-rgba); padding: 1.2rem 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-wrapper { display: flex; align-items: center; gap: 0.5rem; font-weight: 700; font-size: var(--fs-body-lg); cursor: pointer; }
+        .logo-icon-svg { width: 24px; height: 24px; }
+        
+        .nav-links { display: flex; gap: 3rem; list-style: none; font-size: var(--fs-sm); font-weight: 500; color: var(--text-muted); }
+        .nav-links li { cursor: pointer; transition: color 0.2s; }
+        .nav-links li:hover, .nav-links li.active { color: var(--text-main); }
+        
+        /* UNIFIED APP ROUTER VIEWPORTS */
+        .app-view { display: none; }
+        .app-view.view-active { display: block; }
+
+        /* BUTTONS */
+        .btn-premium { display: inline-block; background: var(--text-main); color: #000; padding: 1rem 2.2rem; font-weight: 600; border-radius: var(--radius-md); text-align: center; cursor: pointer; }
+        .btn-secondary { display: inline-block; background: rgba(255,255,255,0.03); color: var(--text-main); border: 1px solid var(--border-rgba); padding: 1rem 2.2rem; font-weight: 600; border-radius: var(--radius-md); text-align: center; cursor: pointer; }
+
+        /* HERO & PLATFORM CORES */
+        .section-hero { padding: 14rem 0 8rem; min-height: 100vh; display: flex; align-items: center; }
+        .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 5rem; align-items: center; }
+        .hero-title { font-size: var(--fs-display); line-height: 1.1; margin-bottom: 1.5rem; letter-spacing: -0.03em; }
+        .gradient-text { background: linear-gradient(135deg, var(--text-main) 40%, var(--accent) 100%); background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-description { font-size: var(--fs-body-lg); color: var(--text-muted); margin-bottom: 3rem; max-width: 580px; }
+        .hero-cta-group { display: flex; gap: 1rem; }
+
+        /* MOCKUP FLUID FRAME */
+        .glass-dashboard-shell { background: rgba(17,17,17,0.75); border: 1px solid var(--border-rgba); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); width: 100%; }
+        .shell-header { background: rgba(255,255,255,0.02); border-bottom: 1px solid var(--border-rgba); padding: 1rem 1.5rem; display: flex; gap: 0.5rem; }
+        .shell-header span { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); }
+        .shell-body { padding: 2.5rem;}
+        .dashboard-metric-strip { display: flex; gap: 1rem; margin-bottom: 1rem; }
+        .mini-card { background: rgba(255,255,255,0.02); border: 1px solid var(--border-rgba); padding: 1rem; border-radius: var(--radius-md); flex: 1; }
+        .m-value { font-size: var(--fs-h3); font-weight: 700; display: block; margin-top: 0.5rem; }
+        .text-accent { color: var(--accent); }
+        
+        /* FEATURES SECTORS */
+        .section-features { padding: 4rem 0 8rem; }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; width: 100%; }
+        .feature-card { background: var(--bg-card); border: 1px solid var(--border-rgba); border-radius: var(--radius-lg); padding: 3rem 2rem; transition: border-color 0.3s; }
+        .feature-card:hover { border-color: rgba(255,255,255,0.15); }
+        .feature-card h3 { font-size: var(--fs-h3); margin-bottom: 1rem; font-weight: 600; }
+        .feature-card p { color: var(--text-muted); font-size: var(--fs-sm); }
+        
+        /* TECHNICAL EXTRAS WIDGETS */
+        .pipeline-container { display: flex; flex-direction: column; gap: 1rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border-rgba); padding: 2rem; border-radius: var(--radius-lg); margin: 3rem 0; }
+        .pipeline-step { display: flex; justify-content: space-between; align-items: center; padding: 1rem; background: rgba(0,0,0,0.3); border-radius: var(--radius-md); border-left: 3px solid var(--primary); }
+        .pipeline-step.active-step { border-left-color: var(--accent); background: rgba(56, 189, 248, 0.03); }
+        .step-meta { font-family: monospace; font-size: 11px; color: var(--text-dark); }
+
+        .data-sheet-section { padding: 6rem 0 10rem; border-top: 1px solid var(--border-rgba); }
+        .data-sheet-title { font-size: var(--fs-h2); margin-bottom: 3rem; letter-spacing: -0.03em; }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: var(--fs-sm); }
+        .spec-table th, .spec-table td { padding: 1.25rem 1rem; text-align: left; border-bottom: 1px solid var(--border-rgba); }
+        .spec-table th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; }
+        .spec-table td.parameter { font-family: monospace; color: var(--accent); font-weight: 600; }
+
+        /* FOOTER */
+        .site-footer { border-top: 1px solid var(--border-rgba); padding: 5rem 0 2rem; background: var(--bg-main); margin-top: 2rem; position: relative; overflow: hidden; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; position: relative; z-index: 1; }
+        .footer-col h4 { color: var(--text-main); font-size: 1rem; margin-bottom: 1.5rem; font-weight: 600; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+        .footer-links li { color: var(--text-muted); font-size: var(--fs-sm); cursor: pointer; transition: color 0.2s; }
+        .footer-links li:hover { color: var(--text-main); }
+        .footer-bottom { border-top: 1px solid var(--border-rgba); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: var(--fs-sm); position: relative; z-index: 1; }
+
+        /* AMBIENT GLOWS */
+        .glow-blob { position: absolute; border-radius: 50%; filter: blur(130px); opacity: 0.15; z-index: -1; pointer-events: none; }
+        .blob-1 { width: 500px; height: 500px; background: var(--primary); top: 0; right: 0; }
+        .blob-2 { width: 600px; height: 600px; background: var(--accent); bottom: -100px; left: -200px; opacity: 0.2; }
+        .social-links { display: flex; gap: 1.5rem; }
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 4rem; }
+            .hero-description { margin: 0 auto 3rem; }
+            .hero-cta-group { justify-content: center; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .section-hero { padding: 10rem 0 5rem; min-height: auto; align-items: flex-start; }
+            .hero-title { font-size: var(--fs-display); line-height: 1.1; margin-bottom: 1.5rem; margin-top: 5rem; letter-spacing: -0.03em; }
+            .container { padding: 0 1.5rem; }
+            .nav-links { display: none; }
+            .hero-cta-group { flex-direction: column; width: 100%; gap: 1rem; }
+            .btn-premium, .btn-secondary { width: 100%; display: block; }
+            .features-grid { grid-template-columns: 1fr; }
+            .dashboard-metric-strip { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 1.5rem; }
+            .spec-table th { display: none; }
+            .spec-table tr { display: flex; flex-direction: column; padding: 1rem 0; }
+            .spec-table td { padding: 0.25rem 0; border: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-blob blob-1"></div>
+
+    <!-- MAIN NAVIGATION LAYER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-wrapper" onclick="switchView('capabilities')">
+                <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#FFFFFF" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                <span>ConectOut</span>
+            </div>
+            <ul class="nav-links">
+                <li id="nav-capabilities" class="active" onclick="switchView('capabilities')">Operating Domains</li>
+                <li id="nav-physics" onclick="switchView('physics')">Engine Matrix</li>
+                <li id="nav-defense" onclick="switchView('defense')">Data & Security</li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- TAB VIEW 1: CAPABILITIES / DOMAINS -->
+    <div id="view-capabilities" class="app-view view-active">
+        <main>
+            <section class="section-hero container hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Multi-Domain OS. <br><span class="gradient-text">Absolute Convergence.</span>
+                    </h1>
+                    <p class="hero-description">
+                        ConectOut builds the foundational operating system for next-generation defense and infrastructure. Powering orbital rockets, naval fleets, autonomous drone swarms, and sovereign tactical intelligence architectures.
+                    </p>
+                    <div class="hero-cta-group">
+                        <div class="btn-premium" onclick="switchView('physics')">Explore Engine Matrix</div>
+                        <div class="btn-secondary" onclick="switchView('defense')">View Security Protocols</div>
+                    </div>
+                </div>
+                
+                <div class="glass-dashboard-shell">
+                    <div class="shell-header">
+                        <div style="font-family: monospace; font-size: 11px; color: var(--text-muted);">GLOBAL TELEMETRY SENSOR FUSION</div>
+                    </div>
+                    <div class="shell-body">
+                        <div class="dashboard-metric-strip">
+                            <div class="mini-card">
+                                <span style="color:var(--text-muted); font-size:12px; font-weight: 600;">ACTIVE AUTONOMOUS ASSETS</span>
+                                <span class="m-value">12,408</span>
+                            </div>
+                            <div class="mini-card">
+                                <span style="color:var(--text-muted); font-size:12px; font-weight: 600;">DATA PROCESSING THROUGHPUT</span>
+                                <span class="m-value text-accent">8.4 TB / sec</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-features container">
+                <h2 style="font-size: var(--fs-h1); text-align: center; margin-bottom: 1rem;">Asset Deployment OS</h2>
+                <p style="color: var(--text-muted); text-align: center; max-width: 600px; margin: 0 auto;">We provide the embedded operating layers required to control complex physical platforms in hostile environments.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Aerospace & Strike Assets</h3>
+                        <p>Embedded OS for orbital rockets, 6th-gen combat aircraft, and hypersonic missile arrays. Guarantees deterministic flight paths and real-time aerothermal compensation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Naval & Sub-Surface Fleet</h3>
+                        <p>Hydrodynamic control layers for surface ships and deep-sea autonomous underwater vehicles (AUVs). Manages fluid drag mapping and oceanic current navigation.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Drone Swarms & Tracking</h3>
+                        <p>Edge-computing software for uncrewed aerial vehicles (UAVs) and ground fleets. Features autonomous target acquisition, terrain mapping, and synchronized swarm behaviors.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- TAB VIEW 2: CORE TECHNOLOGY / ENGINE MATRIX -->
+    <div id="view-physics" class="app-view">
+        <main class="container" style="padding-top: 12rem;">
+            <h2 class="hero-title">The Engine Matrix<br><span class="gradient-text">6 Core Proprietary Solvers</span></h2>
+            <p class="hero-description" style="max-width: 750px;">ConectOut engineers specialized computational engines that synthesize physics, biology, chemistry, and cyber-kinetic variables into actionable operational data.</p>
+
+            <div class="features-grid" style="margin-bottom: 4rem;">
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Vehicle Physics Engine</h3>
+                    <p>The rigid body dynamics solver at the heart of our OS. Calculates structural stress, variable inertia matrices, and rotational momentum for physical assets traveling at hyper-velocities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Chemistry Engine</h3>
+                    <p>Simulates molecular thermodynamics and material science interactions. Calculates solid/liquid rocket propellant burn rates, hypergolic fuel efficiencies, and atmospheric material degradation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Bio-Kinetics Engine</h3>
+                    <p>Models the physical limitations of human operators inside extreme environments. Simulates G-force load impacts, biometric stress responses, and biological hazard containment perimeters.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Cyber Operations Engine</h3>
+                    <p>A digital warfare emulator that bridges software vulnerabilities to kinetic hardware impacts. Simulates network breaches, EMP resistance, and offensive electronic warfare (EW) countermeasures.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Autonomous Tracking System</h3>
+                    <p>Multi-domain target acquisition matrices. Utilizes predictive geometric modeling to identify, track, and calculate intercept paths for hostile fast-moving assets across land, sea, and air.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Tactical Sovereign LLM</h3>
+                    <p>Air-gapped Large Language Models designed strictly for intelligence parsing. Ingests raw radio chatter, sensor logs, and radar data, converting it into clear text-based strategic directives without cloud dependency.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- TAB VIEW 3: DEFENSE & SECURITY -->
+    <div id="view-defense" class="app-view">
+        <main class="container" style="padding-top: 12rem;">
+            <h2 class="hero-title">Information Dominance<br><span class="gradient-text">Data Security & Processing</span></h2>
+            <p class="hero-description" style="max-width: 750px;">Hardware and kinetic algorithms are useless without absolute data security. ConectOut secures telemetry at scale through encrypted algorithms and massive sensor fusion architectures.</p>
+
+            <div class="pipeline-container" style="margin-bottom: 5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span class="m-label" style="color: var(--accent); font-size: 13px; font-weight: 600;">ENCRYPTED DATA PIPELINE</span>
+                    <span id="solver-hz" style="font-family: monospace; font-size: 12px; color: var(--text-muted);">PIPELINE SECURE</span>
+                </div>
+                
+                <div class="pipeline-step active-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Sensor Fusion & Collection</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Real-time ingestion of massive multi-domain data arrays including LIDAR, radar, optical, and sonar telemetry.</p>
+                    </div>
+                    <span class="step-meta">STAGE 1</span>
+                </div>
+
+                <div class="pipeline-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Algorithmic Data Security</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Applying quantum-resistant cryptography and localized sub-network air-gapping to prevent external interception.</p>
+                    </div>
+                    <span class="step-meta">STAGE 2</span>
+                </div>
+
+                <div class="pipeline-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Intelligence Processing (LLM)</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Sovereign AI parsing verified structural data into human-readable battlefield overviews.</p>
+                    </div>
+                    <span class="step-meta">STAGE 3</span>
+                </div>
+            </div>
+
+            <section class="data-sheet-section">
+                <h2 class="data-sheet-title">Compliance Metrics & Structural Parameters</h2>
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Architecture Protocol</th>
+                            <th>Deployment Parameter</th>
+                            <th>Operational Protection Standard</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="parameter">SEC_PROT_QML_64</td>
+                            <td>Quantam Encryption Protocol</td>
+                            <td>Strict tracking isolation algorithms conforming to global weapon and technology export transaction security.</td>
+                        </tr>
+                        <tr>
+                            <td class="parameter">SEC_PROT_AIRG_01</td>
+                            <td>Air-Gapped Isolation Engine</td>
+                            <td>Infrastructure designed for zero-external network dependency operations natively inside local tactical environments.</td>
+                        </tr>
+                        <tr>
+                            <td class="parameter">SEC_PROT_FTM_M9</td>
+                            <td>Fault Tolerance Matrix M9</td>
+                            <td>Sub-microsecond processor failover logic monitoring physical cosmic-ray memory degradation in orbital assets.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="glow-blob blob-2"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrapper" style="margin-bottom: 1rem;" onclick="switchView('capabilities')">
+                        <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#FFFFFF" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                        <span>ConectOut</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: var(--fs-sm); max-width: 250px; margin-top: 1rem;">
+                        Multi-domain sovereign operating systems and tactical engineering engines.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Engine Matrix</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('physics')">Vehicle Physics</li>
+                        <li onclick="switchView('physics')">Chemistry & Bio-Kinetics</li>
+                        <li onclick="switchView('physics')">Cyber Operations</li>
+                        <li onclick="switchView('physics')">Tactical LLMs</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Operating Domains</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('capabilities')">Aerospace & Rockets</li>
+                        <li onclick="switchView('capabilities')">Naval & Sub-Surface</li>
+                        <li onclick="switchView('capabilities')">Autonomous Drones</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Data & Security</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('defense')">Sensor Fusion</li>
+                        <li onclick="switchView('defense')">Algorithmic Security</li>
+                        <li onclick="switchView('defense')">Quantam Encryption</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ConectOut Technologies . Secure Engineering Division.</p>
+                <div class="social-links">
+                    <a href="mailto:operations@conectout.com">hello@conectout.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE VIEW CONTROL SCRIPT -->
+    <script>
+        function switchView(viewId) {
+            document.querySelectorAll('.app-view').forEach(view => {
+                view.classList.remove('view-active');
+            });
+            document.querySelectorAll('.nav-links li').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            if(viewId === 'capabilities') {
+                document.getElementById('view-capabilities').classList.add('view-active');
+                document.getElementById('nav-capabilities').classList.add('active');
+            } else if(viewId === 'physics') {
+                document.getElementById('view-physics').classList.add('view-active');
+                document.getElementById('nav-physics').classList.add('active');
+            } else if(viewId === 'defense') {
+                document.getElementById('view-defense').classList.add('view-active');
+                document.getElementById('nav-defense').classList.add('active');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'instant' });
+        }
+
+        // Live Simulated Sequencing Loop on Defense Tab
+        setInterval(() => {
+            const steps = document.querySelectorAll('.pipeline-step');
+            if(steps.length === 0) return;
+            
+            let activeIndex = 0;
+            steps.forEach((step, index) => {
+                if(step.classList.contains('active-step')) {
+                    activeIndex = index;
+                    step.classList.remove('active-step');
+                }
+            });
+
+            let nextIndex = (activeIndex + 1) % steps.length;
+            steps[nextIndex].classList.add('active-step');
+            
+        }, 3000);
+    </script>
+</body>
+</html>
