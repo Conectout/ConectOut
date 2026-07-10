@@ -134,6 +134,85 @@
             .spec-table tr { display: flex; flex-direction: column; padding: 1rem 0; }
             .spec-table td { padding: 0.25rem 0; border: none; }
         }
+        /* CORE VARIABLES: TACTICAL HUD PALETTE */
+        :root {
+            --bg-main: #050505;
+            --bg-card: #0a0a0c;
+            --primary: #2563EB;
+            --accent: #38BDF8;
+            --text-main: #E2E8F0;
+            --text-muted: #64748B;
+            --border-rgba: rgba(56, 189, 248, 0.2);
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+        }
+
+        /* GLOBAL HARDENING */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            letter-spacing: -0.01em;
+        }
+
+        /* TACTICAL MONOSPACE TYPOGRAPHY */
+        h1, h2, h3, .m-value, .step-meta, .m-label { 
+            font-family: var(--font-mono) !important; 
+            text-transform: uppercase;
+        }
+
+        /* AGGRESSIVE GLASS PANELS */
+        .glass-dashboard-shell, .feature-card { 
+            background: var(--bg-card); 
+            border: 1px solid var(--border-rgba); 
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 0px; /* SHARP EDGES */
+        }
+
+        .feature-card:hover { 
+            border-color: var(--accent); 
+            background: #0f172a;
+        }
+
+        /* PRECISION HUD ELEMENTS */
+        .shell-header { 
+            border-bottom: 1px solid var(--border-rgba); 
+            background: #000;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+        }
+
+        .btn-premium { 
+            background: var(--accent); 
+            color: #000; 
+            border-radius: 0px;
+            font-family: var(--font-mono);
+            font-weight: 800;
+        }
+
+        .btn-secondary { 
+            background: transparent; 
+            border: 1px solid var(--accent); 
+            color: var(--accent);
+            border-radius: 0px;
+            font-family: var(--font-mono);
+        }
+
+        /* DATA TABLE HARDENING */
+        .spec-table { 
+            border: 1px solid var(--border-rgba); 
+        }
+        .spec-table th { 
+            background: #000; 
+            color: var(--accent);
+        }
+
+        /* GLOWS: SUBDUED TO TACTICAL */
+        .glow-blob { 
+            opacity: 0.08; 
+            filter: blur(150px);
+        }
+
     </style>
 </head>
 <body>
