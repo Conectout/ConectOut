@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConectOut Foundation | Social Impact Initiative</title>
+    
+    <!-- MINIMAL INFINITY LOGO FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z' stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><circle cx='12' cy='12' r='1.5' fill='%23FFF'/></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CORE VARIABLES: ENTERPRISE AESTHETIC */
+        :root {
+            --bg-main: #0B0E14;        
+            --bg-card: #11151C;        
+            --bg-card-hover: #161B24;
+            --primary: #FFFFFF;        
+            --accent: #8A9BB2;         
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-rgba: rgba(255, 255, 255, 0.08);
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif; 
+            
+            --radius-sm: 2px;
+            --radius-md: 4px;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; overflow-x: hidden; font-weight: 300; }
+        .container { width: 100%; max-width: 1000px; margin: 0 auto; padding: 0 5vw; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; color: var(--text-main); }
+        
+        /* HEADER */
+        .site-header { position: fixed; top: 0; width: 100%; background: rgba(11, 14, 20, 0.95); border-bottom: 1px solid var(--border-rgba); padding: 1rem 0; z-index: 100; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-wrapper { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; font-size: 1rem; cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase; }
+        
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .nav-links li:hover { color: var(--text-main); }
+
+        /* HERO SECTION */
+        .section-hero { padding: 12rem 0 6rem; text-align: center; border-bottom: 1px solid var(--border-rgba); }
+        .hero-subtitle { font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.5rem; display: block; }
+        .hero-title { font-size: clamp(2.5rem, 5vw + 1rem, 4rem); line-height: 1.15; margin-bottom: 2rem; }
+        .hero-description { font-size: 1.125rem; color: var(--text-muted); margin: 0 auto 3rem; max-width: 700px; line-height: 1.8; }
+        
+        .btn-premium { display: inline-block; background: var(--primary); color: var(--bg-main); padding: 0.85rem 2.5rem; font-size: 0.85rem; font-weight: 600; border-radius: var(--radius-sm); text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s; }
+        .btn-premium:hover { background: #E2E8F0; }
+
+        /* GRID SECTIONS */
+        .section-content { padding: 6rem 0; }
+        .section-title { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
+        .section-sub { text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 4rem; font-size: 0.95rem; }
+
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-rgba); border: 1px solid var(--border-rgba); }
+        .feature-card { background: var(--bg-main); padding: 3rem 2rem; }
+        .feature-card h3 { font-size: 1.25rem; margin-bottom: 1rem; }
+        .feature-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+
+        /* PIPELINE / PROCESS */
+        .pipeline-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 3rem; }
+        .pipeline-step { display: flex; align-items: flex-start; gap: 2rem; padding: 2.5rem; background: var(--bg-card); border: 1px solid var(--border-rgba); }
+        .step-number { font-family: var(--font-serif); font-size: 2.5rem; color: var(--accent); line-height: 1; }
+        .step-content h3 { margin-bottom: 0.5rem; font-size: 1.4rem; }
+        .step-content p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* FOOTER */
+        .site-footer { border-top: 1px solid var(--border-rgba); padding: 4rem 0 2rem; background: #07090C; text-align: center; }
+        .footer-text { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 1rem; }
+
+        @media (max-width: 768px) {
+            .features-grid { grid-template-columns: 1fr; }
+            .pipeline-step { flex-direction: column; gap: 1rem; padding: 1.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="index.html" class="logo-wrapper">
+                <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#FFFFFF" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                <span>ConectOut Technology</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Main OS</a></li>
+                <li><a href="mailto:operations@conectout.com">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="section-hero container">
+        <span class="hero-subtitle">A Social Impact Initiative</span>
+        <h1 class="hero-title">ConectOut Foundation</h1>
+        <p class="hero-description">
+            We do not fund trivial applications. We provide architectural support, elite mentorship, and venture syndication for students and professionals building highly complex, sovereign technology systems.
+        </p>
+        <a href="mailto:operations@conectout.com?subject=Foundation%20Research%20Proposal" class="btn-premium">Submit Research Proposal</a>
+    </section>
+
+    <!-- CORE RESEARCH DOMAINS -->
+    <section class="section-content container">
+        <h2 class="section-title">Approved Research Domains</h2>
+        <p class="section-sub">Proposals must push the boundaries of computational science. We are actively seeking projects in the following high-complexity sectors.</p>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>Temporal Memory Architectures</h3>
+                <p>Developing AI systems capable of long-term state retention, chronological reasoning, and continuous learning without catastrophic forgetting.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Sovereign LLM Infrastructure</h3>
+                <p>Building localized, air-gapped Large Language Models optimized for edge deployment, tactical intelligence, and low-latency inference.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Advanced Deep Learning</h3>
+                <p>Novel neural network topologies applied to structural physics, fluid dynamics, multi-agent autonomous swarms, and biometric processing.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE INCUBATION PIPELINE -->
+    <section class="section-content container">
+        <h2 class="section-title">The Deployment Pipeline</h2>
+        <p class="section-sub">How ConectOut Technology scales academic and professional engineering into enterprise-grade deployment.</p>
+        
+        <div class="pipeline-grid">
+            <div class="pipeline-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3>Development & Architectural Support</h3>
+                    <p>Accepted candidates receive direct mentorship from ConectOut engineers. We provide guidance on code structuring, matrix optimization, and computational scaling to transition your idea from theory to prototype.</p>
+                </div>
+            </div>
+            <div class="pipeline-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3>Official Certification & Validation</h3>
+                    <p>Upon successful completion of a project phase, builders are awarded formal ConectOut Technology Internship Certifications, validating their capability in sovereign tech engineering to future employers.</p>
+                </div>
+            </div>
+            <div class="pipeline-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3>Venture & Enterprise Syndication</h3>
+                    <p>If a project demonstrates high commercial or defense viability, ConectOut Foundation will bypass traditional routes and directly share your architecture with our internal network of deep-tech investors and enterprise partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="logo-wrapper" style="justify-content: center; margin-bottom: 1.5rem;">
+                <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#FFFFFF" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                <span>ConectOut Foundation</span>
+            </div>
+            <p class="footer-text">A social impact initiative operating under ConectOut Technology.</p>
+            <p class="footer-text" style="font-family: var(--font-sans); font-size: 0.7rem; color: #475569;">&copy; 2026 ConectOut Technology. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
