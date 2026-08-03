@@ -3,1872 +3,418 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta
-        name="description"
-        content="ConectOut is an independent deep-technology research and development initiative exploring artificial intelligence, embedded systems, computational simulation, autonomous systems and experimental software architectures."
-    >
-
-    <title>ConectOut Technology | Deep-Tech Research & Engineering</title>
-
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,
-    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'>
-        <path d='M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z'
-        stroke='%23FFFFFF'
-        stroke-width='2'
-        stroke-linecap='round'
-        stroke-linejoin='round'/>
-        <circle cx='12' cy='12' r='1.5' fill='%23FFFFFF'/>
-    </svg>">
-
+    <title>ConectOut Technology | Software & OS Ecosystem</title>
+    
+    <!-- MINIMAL INFINITY LOGO FAVICON -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'><path d='M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z' stroke='%2338BDF8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><circle cx='12' cy='12' r='1.5' fill='%23FFF'/></svg>">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-
-        /* ============================================================
-           CORE
-        ============================================================ */
-
+            /* CORE VARIABLES: ENTERPRISE SOFTWARE AESTHETIC */
         :root {
-            --bg: #080a0e;
-            --bg-secondary: #0d1016;
-            --card: #11151c;
-            --card-hover: #151a23;
-
-            --text: #f5f7fa;
-            --muted: #8c96a5;
-            --soft: #bac2ce;
-
-            --accent: #8ca8c7;
-
-            --border: rgba(255,255,255,0.09);
-            --border-strong: rgba(255,255,255,0.18);
-
-            --font-main: "Inter", sans-serif;
-            --font-display: "Space Grotesk", sans-serif;
-
-            --container: 1240px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: var(--font-main);
-            line-height: 1.7;
-            font-weight: 300;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button {
-            font-family: inherit;
-        }
-
-        .container {
-            width: min(90%, var(--container));
-            margin: auto;
-        }
-
-        section {
-            padding: 110px 0;
-        }
-
-        .section-border {
-            border-top: 1px solid var(--border);
-        }
-
-        .eyebrow {
-            display: block;
-            margin-bottom: 18px;
-
-            color: var(--accent);
-
-            font-size: 0.72rem;
-            font-weight: 600;
-
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
-        }
-
-        .section-title {
-            max-width: 800px;
-
-            font-family: var(--font-display);
-            font-size: clamp(2.2rem, 5vw, 4rem);
-
-            font-weight: 500;
-            letter-spacing: -0.045em;
-            line-height: 1.08;
-        }
-
-        .section-description {
-            max-width: 680px;
-            margin-top: 24px;
-
-            color: var(--muted);
-
-            font-size: 1.05rem;
-            line-height: 1.9;
-        }
-
-
-        /* ============================================================
-           HEADER
-        ============================================================ */
-
-        header {
-            position: fixed;
-
-            top: 0;
-            left: 0;
-
-            width: 100%;
-
-            z-index: 1000;
-
-            background: rgba(8,10,14,0.88);
-
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .nav {
-            height: 76px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-
-            gap: 12px;
-
-            font-family: var(--font-display);
-
-            font-weight: 600;
-            font-size: 0.95rem;
-
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-
-        .logo svg {
-            width: 23px;
-            height: 23px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-
-            gap: 34px;
-
-            list-style: none;
-
-            color: var(--muted);
-
-            font-size: 0.76rem;
-
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        .nav-links a {
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: var(--text);
-        }
-
-        .menu-button {
-            display: none;
-
-            background: transparent;
-
-            border: 0;
-
-            color: white;
-
-            font-size: 1.5rem;
-
-            cursor: pointer;
-        }
-
-
-        /* ============================================================
-           HERO
-        ============================================================ */
-
-        .hero {
-            min-height: 100vh;
-
-            display: flex;
-            align-items: center;
-
-            padding-top: 150px;
-        }
-
-        .hero-layout {
-            display: grid;
-
-            grid-template-columns: 1.25fr 0.75fr;
-
-            gap: 90px;
-
-            align-items: center;
-        }
-
-        .hero h1 {
-            max-width: 850px;
-
-            font-family: var(--font-display);
-
-            font-size: clamp(3.4rem, 7vw, 6.7rem);
-
-            font-weight: 500;
-
-            line-height: 0.98;
-
-            letter-spacing: -0.065em;
-        }
-
-        .hero h1 span {
-            color: var(--muted);
-        }
-
-        .hero-description {
-            max-width: 640px;
-
-            margin-top: 32px;
-
-            color: var(--muted);
-
-            font-size: 1.12rem;
-
-            line-height: 1.9;
-        }
-
-        .hero-buttons {
-            display: flex;
-
-            gap: 14px;
-
-            margin-top: 40px;
-        }
-
-        .button-primary,
-        .button-secondary {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-height: 50px;
-
-            padding: 0 25px;
-
-            font-size: 0.78rem;
-
-            font-weight: 600;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.08em;
-
-            transition: 0.25s;
-        }
-
-        .button-primary {
-            background: white;
-            color: #080a0e;
-        }
-
-        .button-primary:hover {
-            background: #dfe4ea;
-        }
-
-        .button-secondary {
-            border: 1px solid var(--border-strong);
-        }
-
-        .button-secondary:hover {
-            background: var(--card);
-        }
-
-
-        /* ============================================================
-           RESEARCH SYSTEM PANEL
-        ============================================================ */
-
-        .research-panel {
-            background: var(--bg-secondary);
-
-            border: 1px solid var(--border);
-        }
-
-        .panel-header {
-            padding: 16px 20px;
-
-            border-bottom: 1px solid var(--border);
-
-            display: flex;
-
-            justify-content: space-between;
-
-            color: var(--muted);
-
-            font-family: monospace;
-
-            font-size: 0.7rem;
-        }
-
-        .panel-body {
-            padding: 28px;
-        }
-
-        .system-line {
-            position: relative;
-
-            padding: 20px 0 20px 25px;
-
-            border-left: 1px solid var(--border-strong);
-        }
-
-        .system-line::before {
-            content: "";
-
-            position: absolute;
-
-            width: 7px;
-            height: 7px;
-
-            left: -4px;
-            top: 27px;
-
-            background: var(--accent);
-        }
-
-        .system-label {
-            color: var(--muted);
-
-            font-size: 0.7rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.12em;
-        }
-
-        .system-name {
-            display: block;
-
-            margin-top: 5px;
-
-            font-family: var(--font-display);
-
-            font-size: 1.1rem;
-        }
-
-
-        /* ============================================================
-           RESEARCH AREAS
-        ============================================================ */
-
-        .research-grid {
-            margin-top: 65px;
-
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            border-top: 1px solid var(--border);
-            border-left: 1px solid var(--border);
-        }
-
-        .research-card {
-            min-height: 330px;
-
-            padding: 38px;
-
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-
-            transition: 0.3s;
-        }
-
-        .research-card:hover {
-            background: var(--card);
-        }
-
-        .card-number {
-            color: var(--muted);
-
-            font-family: monospace;
-
-            font-size: 0.72rem;
-        }
-
-        .research-card h3 {
-            margin-top: 70px;
-
-            font-family: var(--font-display);
-
-            font-size: 1.45rem;
-
-            font-weight: 500;
-        }
-
-        .research-card p {
-            margin-top: 17px;
-
-            color: var(--muted);
-
-            font-size: 0.9rem;
-
-            line-height: 1.8;
-        }
-
-
-        /* ============================================================
-           PROJECTS
-        ============================================================ */
-
-        .projects {
-            background: var(--bg-secondary);
-        }
-
-        .project-list {
-            margin-top: 60px;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .project {
-            display: grid;
-
-            grid-template-columns: 1.2fr 2fr 0.7fr;
-
-            gap: 50px;
-
-            padding: 35px 0;
-
-            border-bottom: 1px solid var(--border);
-
-            align-items: center;
-
-            transition: 0.25s;
-        }
-
-        .project:hover {
-            padding-left: 15px;
-        }
-
-        .project h3 {
-            font-family: var(--font-display);
-
-            font-size: 1.3rem;
-
-            font-weight: 500;
-        }
-
-        .project p {
-            color: var(--muted);
-
-            font-size: 0.9rem;
-        }
-
-        .status {
-            justify-self: end;
-
-            padding: 7px 12px;
-
-            border: 1px solid var(--border-strong);
-
-            color: var(--soft);
-
-            font-family: monospace;
-
-            font-size: 0.67rem;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.08em;
-        }
-
-
-        /* ============================================================
-           ENGINEERING PRINCIPLES
-        ============================================================ */
-
-        .principles-layout {
-            display: grid;
-
-            grid-template-columns: 0.8fr 1.2fr;
-
-            gap: 100px;
-
-            margin-top: 70px;
-        }
-
-        .principle {
-            padding: 30px 0;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .principle:last-child {
-            border-bottom: 1px solid var(--border);
-        }
-
-        .principle h3 {
-            font-family: var(--font-display);
-
-            font-weight: 500;
-
-            font-size: 1.25rem;
-        }
-
-        .principle p {
-            margin-top: 12px;
-
-            color: var(--muted);
-
-            font-size: 0.92rem;
-        }
-
-
-        /* ============================================================
-           FOUNDATION
-        ============================================================ */
-
-        .foundation-box {
-            padding: 70px;
-
-            border: 1px solid var(--border);
-
-            background: var(--bg-secondary);
-
-            display: grid;
-
-            grid-template-columns: 1.2fr 0.8fr;
-
-            gap: 80px;
-
-            align-items: center;
-        }
-
-        .foundation-box h2 {
-            font-family: var(--font-display);
-
-            font-size: clamp(2.3rem, 5vw, 4rem);
-
-            font-weight: 500;
-
-            letter-spacing: -0.04em;
-        }
-
-        .foundation-box p {
-            margin-top: 22px;
-
-            color: var(--muted);
-
-            line-height: 1.9;
-        }
-
-        .foundation-list {
-            list-style: none;
-        }
-
-        .foundation-list li {
-            padding: 18px 0;
-
-            border-top: 1px solid var(--border);
-
-            color: var(--soft);
-
-            font-size: 0.9rem;
-        }
-
-        .foundation-list li:last-child {
-            border-bottom: 1px solid var(--border);
-        }
-
-
-        /* ============================================================
-           ABOUT
-        ============================================================ */
-
-        .about-layout {
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;
-
-            gap: 100px;
-
-            align-items: start;
-        }
-
-        .about-text {
-            color: var(--muted);
-
-            font-size: 1.05rem;
-
-            line-height: 2;
-        }
-
-        .about-text p + p {
-            margin-top: 22px;
-        }
-
-
-        /* ============================================================
-           CONTACT
-        ============================================================ */
-
-        .contact {
-            text-align: center;
-
-            background: var(--bg-secondary);
-        }
-
-        .contact h2 {
-            max-width: 900px;
-
-            margin: auto;
-
-            font-family: var(--font-display);
-
-            font-size: clamp(2.5rem, 6vw, 5rem);
-
-            line-height: 1.05;
-
-            letter-spacing: -0.05em;
-
-            font-weight: 500;
-        }
-
-        .contact p {
-            max-width: 650px;
-
-            margin: 30px auto;
-
-            color: var(--muted);
-        }
-
-
-        /* ============================================================
-           FOOTER
-        ============================================================ */
-
-        footer {
-            padding: 70px 0 30px;
-
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-grid {
-            display: grid;
-
-            grid-template-columns: 2fr 1fr 1fr;
-
-            gap: 70px;
-
-            margin-bottom: 70px;
-        }
-
-        .footer-description {
-            max-width: 380px;
-
-            margin-top: 20px;
-
-            color: var(--muted);
-
-            font-size: 0.85rem;
-        }
-
-        .footer-title {
-            margin-bottom: 20px;
-
-            font-size: 0.72rem;
-
-            font-weight: 600;
-
-            text-transform: uppercase;
-
-            letter-spacing: 0.1em;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-
-            color: var(--muted);
-
-            font-size: 0.85rem;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            padding-top: 25px;
-
-            border-top: 1px solid var(--border);
-
-            display: flex;
-
-            justify-content: space-between;
-
-            color: var(--muted);
-
-            font-size: 0.75rem;
-        }
-
-
-        /* ============================================================
-           ANIMATION
-        ============================================================ */
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(25px);
-
-            transition:
-                opacity 0.8s ease,
-                transform 0.8s ease;
-        }
-
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-
-        /* ============================================================
-           RESPONSIVE
-        ============================================================ */
-
-        @media(max-width: 950px) {
-
-            .hero-layout,
-            .principles-layout,
-            .foundation-box,
-            .about-layout {
-                grid-template-columns: 1fr;
-            }
-
-            .research-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .project {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .status {
-                justify-self: start;
-            }
-
-        }
-
-
-        @media(max-width: 700px) {
-
-            section {
-                padding: 80px 0;
-            }
-
-            .nav-links {
-                display: none;
-
-                position: absolute;
-
-                top: 76px;
-                left: 0;
-
-                width: 100%;
-
-                padding: 30px;
-
-                background: var(--bg-secondary);
-
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                border-bottom: 1px solid var(--border);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-button {
-                display: block;
-            }
-
-            .hero {
-                padding-top: 130px;
-            }
-
-            .hero h1 {
-                font-size: clamp(3rem, 14vw, 5rem);
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .research-card {
-                min-height: auto;
-            }
-
-            .research-card h3 {
-                margin-top: 40px;
-            }
-
-            .foundation-box {
-                padding: 35px;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
+            --bg-main: #0B0E14;        /* Deep Slate, not pitch black */
+            --bg-card: #11151C;        /* Slightly lighter slate for cards */
+            --bg-card-hover: #161B24;
+            --primary: #FFFFFF;        /* Pure white for primary actions */
+            --accent: #38BDF8;         /* Software/Tech Blue accent */
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-rgba: rgba(255, 255, 255, 0.08);
+            
+            --font-sans: 'Inter', sans-serif;
+            --font-serif: 'Lora', serif;
+            
+            --radius-sm: 2px;
+            --radius-md: 4px;
+            --radius-lg: 4px;
+            
+            --fs-display: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+            --fs-h1: clamp(2rem, 4vw + 1rem, 3rem);
+            --fs-h2: clamp(1.8rem, 3vw + 1rem, 2.5rem);
+            --fs-h3: clamp(1.25rem, 2vw + 1rem, 1.5rem);
+            --fs-body-lg: 1.125rem;
+            --fs-sm: 0.875rem;
+        }
+
+        /* GLOBAL */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: var(--font-sans); background-color: var(--bg-main); color: var(--text-main); line-height: 1.7; overflow-x: hidden; font-weight: 300; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+
+        /* TYPOGRAPHY OVERRIDES */
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; color: var(--text-main); }
+        .hero-title { line-height: 1.15; margin-bottom: 2rem; }
+        .gradient-text { color: var(--text-muted); }
+        
+        /* HEADER */
+        .site-header { position: fixed; top: 0; width: 100%; background: rgba(11, 14, 20, 0.95); border-bottom: 1px solid var(--border-rgba); padding: 1rem 0; z-index: 100; backdrop-filter: blur(8px); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; }
+        .logo-wrapper { display: flex; align-items: center; gap: 0.75rem; font-weight: 500; font-size: 1rem; cursor: pointer; letter-spacing: 0.05em; text-transform: uppercase; }
+        .logo-icon-svg { width: 20px; height: 20px; }
+        
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; font-size: 0.8rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
+        .nav-links li { cursor: pointer; transition: color 0.2s; }
+        .nav-links li:hover, .nav-links li.active { color: var(--text-main); }
+        
+        /* UNIFIED APP ROUTER VIEWPORTS */
+        .app-view { display: none; }
+        .app-view.view-active { display: block; animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* BUTTONS */
+        .btn-premium { display: inline-block; background: var(--primary); color: var(--bg-main); padding: 0.85rem 2rem; font-size: 0.85rem; font-weight: 600; border-radius: var(--radius-sm); text-align: center; cursor: pointer; text-transform: uppercase; letter-spacing: 0.05em; transition: background 0.2s; }
+        .btn-premium:hover { background: #E2E8F0; }
+        .btn-secondary { display: inline-block; background: transparent; color: var(--text-main); border: 1px solid var(--border-rgba); padding: 0.85rem 2rem; font-size: 0.85rem; font-weight: 500; border-radius: var(--radius-sm); text-align: center; cursor: pointer; transition: border-color 0.2s; }
+        .btn-secondary:hover { border-color: var(--accent); }
+
+        /* HERO & PLATFORM CORES */
+        .section-hero { padding: 14rem 0 8rem; min-height: 90vh; display: flex; align-items: center; }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .hero-description { font-size: var(--fs-body-lg); color: var(--text-muted); margin-bottom: 3rem; max-width: 500px; line-height: 1.8; }
+        .hero-cta-group { display: flex; gap: 1rem; }
+
+        /* DATA PANELS */
+        .glass-dashboard-shell { background: var(--bg-card); border: 1px solid var(--border-rgba); border-radius: var(--radius-md); overflow: hidden; width: 100%; box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .shell-header { background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--border-rgba); padding: 0.75rem 1.5rem; }
+        .shell-body { padding: 2rem; }
+        .dashboard-metric-strip { display: flex; gap: 1px; background: var(--border-rgba); }
+        .mini-card { background: var(--bg-card); padding: 1.5rem; flex: 1; }
+        .m-value { font-size: 1.75rem; font-family: var(--font-serif); color: var(--text-main); display: block; margin-top: 0.5rem; }
+        .text-accent { color: var(--accent); }
+        
+        /* FEATURES SECTORS */
+        .section-features { padding: 4rem 0 8rem; border-top: 1px solid var(--border-rgba); }
+        .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border-rgba); margin-top: 4rem; width: 100%; border: 1px solid var(--border-rgba); }
+        .feature-card { background: var(--bg-main); padding: 3.5rem 2.5rem; transition: background 0.3s; }
+        .feature-card:hover { background: var(--bg-card); }
+        .feature-card h3 { font-size: 1.35rem; margin-bottom: 1rem; color: var(--text-main); }
+        .feature-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.7; }
+        
+        /* TECHNICAL EXTRAS WIDGETS */
+        .pipeline-container { display: flex; flex-direction: column; gap: 1rem; margin: 3rem 0; }
+        .pipeline-step { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; background: var(--bg-card); border: 1px solid var(--border-rgba); border-left: 2px solid transparent; }
+        .pipeline-step.active-step { border-left-color: var(--accent); background: var(--bg-card-hover); }
+        .step-meta { font-family: var(--font-sans); font-size: 0.7rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+
+        .data-sheet-section { padding: 6rem 0 10rem; }
+        .data-sheet-title { font-size: var(--fs-h2); margin-bottom: 2rem; }
+        .spec-table { width: 100%; border-collapse: collapse; margin-top: 2rem; font-size: 0.9rem; }
+        .spec-table th, .spec-table td { padding: 1rem 0; text-align: left; border-bottom: 1px solid var(--border-rgba); }
+        .spec-table th { color: var(--text-main); font-weight: 500; font-size: 0.8rem; }
+        .spec-table td.parameter { color: var(--text-muted); font-family: monospace; }
+
+        /* FOOTER */
+        .site-footer { border-top: 1px solid var(--border-rgba); padding: 5rem 0 2rem; background: #07090C; margin-top: 2rem; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 4rem; }
+        .footer-col h4 { color: var(--text-main); font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.5rem; font-weight: 600; }
+        .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-links li { color: var(--text-muted); font-size: 0.85rem; cursor: pointer; transition: color 0.2s; }
+        .footer-links li:hover { color: var(--text-main); }
+        .footer-bottom { border-top: 1px solid var(--border-rgba); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-muted); font-size: 0.8rem; }
+
+        .glow-blob { display: none; }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 4rem; }
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+        }
+        @media (max-width: 768px) {
+            .section-hero { padding: 10rem 0 5rem; min-height: auto; align-items: flex-start; }
+            .nav-links { display: none; }
+            .hero-cta-group { flex-direction: column; width: 100%; gap: 1rem; }
+            .btn-premium, .btn-secondary { width: 100%; display: block; }
+            .features-grid { grid-template-columns: 1fr; }
+            .dashboard-metric-strip { flex-direction: column; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .footer-bottom { flex-direction: column; text-align: left; gap: 1.5rem; align-items: flex-start; }
+            .spec-table th { display: none; }
+            .spec-table tr { display: flex; flex-direction: column; padding: 1rem 0; }
+            .spec-table td { padding: 0.25rem 0; border: none; }
         }
-
     </style>
 </head>
-
-
 <body>
 
+    <div class="glow-blob blob-1"></div>
 
-<!-- ============================================================
-     NAVIGATION
-============================================================ -->
-
-<header>
-
-    <div class="container nav">
-
-        <a href="#home" class="logo">
-
-            <svg viewBox="0 0 24 24" fill="none">
-
-                <path
-                    d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z"
-                    stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                />
-
-                <circle cx="12" cy="12" r="1.5" fill="white"/>
-
-            </svg>
-
-            ConectOut Technology
-
-        </a>
-
-
-        <button
-            class="menu-button"
-            id="menuButton"
-            aria-label="Open navigation"
-        >
-            ☰
-        </button>
-
-
-        <ul class="nav-links" id="navLinks">
-
-            <li><a href="#research">Research</a></li>
-
-            <li><a href="#projects">Projects</a></li>
-
-            <li><a href="#principles">Engineering</a></li>
-
-            <li><a href="#foundation">Foundation</a></li>
-
-            <li><a href="#about">About</a></li>
-
-        </ul>
-
-    </div>
-
-</header>
-
-
-
-<!-- ============================================================
-     HERO
-============================================================ -->
-
-<main id="home">
-
-<section class="hero">
-
-    <div class="container hero-layout">
-
-        <div>
-
-            <span class="eyebrow">
-                Independent Deep-Technology Research & Development
-            </span>
-
-            <h1>
-                Engineering Intelligent Systems
-                <span>from First Principles.</span>
-            </h1>
-
-            <p class="hero-description">
-
-                ConectOut explores the intersection of artificial intelligence,
-                embedded computing, computational simulation and experimental
-                software architectures to research and build intelligent
-                systems designed for real-world environments.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a href="#research" class="button-primary">
-                    Explore Research
-                </a>
-
-                <a href="#projects" class="button-secondary">
-                    View Projects
-                </a>
-
+    <!-- MAIN NAVIGATION LAYER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <div class="logo-wrapper" onclick="switchView('products')">
+                <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#38BDF8" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                <span>ConectOut Technology</span>
             </div>
-
-        </div>
-
-
-
-        <div class="research-panel">
-
-            <div class="panel-header">
-
-                <span>RESEARCH SYSTEM</span>
-
-                <span>CONOUT / R&D</span>
-
-            </div>
-
-
-            <div class="panel-body">
-
-                <div class="system-line">
-
-                    <span class="system-label">
-                        Intelligence
-                    </span>
-
-                    <span class="system-name">
-                        Sovereign & Offline AI
-                    </span>
-
-                </div>
-
-
-                <div class="system-line">
-
-                    <span class="system-label">
-                        Computing
-                    </span>
-
-                    <span class="system-name">
-                        Embedded Systems
-                    </span>
-
-                </div>
-
-
-                <div class="system-line">
-
-                    <span class="system-label">
-                        Simulation
-                    </span>
-
-                    <span class="system-name">
-                        Computational Engines
-                    </span>
-
-                </div>
-
-
-                <div class="system-line">
-
-                    <span class="system-label">
-                        Systems Research
-                    </span>
-
-                    <span class="system-name">
-                        Experimental Architectures
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     RESEARCH
-============================================================ -->
-
-<section id="research" class="section-border">
-
-    <div class="container">
-
-        <span class="eyebrow">
-            Research Areas
-        </span>
-
-        <h2 class="section-title">
-
-            Researching technologies across
-            intelligence, computation and physical systems.
-
-        </h2>
-
-
-        <p class="section-description">
-
-            ConectOut investigates foundational technologies with an emphasis
-            on understanding systems deeply, developing experimental
-            prototypes and exploring architectures that can operate beyond
-            conventional cloud-dependent computing models.
-
-        </p>
-
-
-
-        <div class="research-grid reveal">
-
-
-            <article class="research-card">
-
-                <span class="card-number">01 / AI</span>
-
-                <h3>
-                    Sovereign Artificial Intelligence
-                </h3>
-
-                <p>
-
-                    Research into local and offline AI systems, retrieval
-                    architectures, knowledge systems and intelligent software
-                    capable of operating with reduced dependence on centralized
-                    cloud infrastructure.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="research-card">
-
-                <span class="card-number">02 / EMBEDDED</span>
-
-                <h3>
-                    Embedded Systems
-                </h3>
-
-                <p>
-
-                    Experimental computing systems built around
-                    microcontrollers, constrained hardware, real-time
-                    processing and software designed to interact directly with
-                    physical environments.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="research-card">
-
-                <span class="card-number">03 / SIMULATION</span>
-
-                <h3>
-                    Computational Simulation
-                </h3>
-
-                <p>
-
-                    Research into software engines for modeling physical
-                    systems, numerical computation and the simulation of
-                    complex interactions between computational and physical
-                    environments.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="research-card">
-
-                <span class="card-number">04 / AUTONOMY</span>
-
-                <h3>
-                    Autonomous Systems
-                </h3>
-
-                <p>
-
-                    Exploration of perception, decision-making and control
-                    architectures for intelligent machines operating with
-                    increasing levels of autonomy.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="research-card">
-
-                <span class="card-number">05 / SYSTEMS</span>
-
-                <h3>
-                    Experimental Operating Systems
-                </h3>
-
-                <p>
-
-                    Research into lightweight software architectures,
-                    hardware-software interaction and experimental operating
-                    environments for embedded and intelligent computing
-                    platforms.
-
-                </p>
-
-            </article>
-
-
-
-            <article class="research-card">
-
-                <span class="card-number">06 / KNOWLEDGE</span>
-
-                <h3>
-                    Intelligent Knowledge Systems
-                </h3>
-
-                <p>
-
-                    Development of retrieval, semantic search and
-                    retrieval-augmented generation architectures for building
-                    AI systems that reason over structured and unstructured
-                    knowledge.
-
-                </p>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     PROJECTS
-============================================================ -->
-
-<section id="projects" class="projects section-border">
-
-    <div class="container">
-
-        <span class="eyebrow">
-            Selected Projects
-        </span>
-
-        <h2 class="section-title">
-            Research through engineering.
-        </h2>
-
-
-        <p class="section-description">
-
-            Our projects are experimental systems used to investigate
-            technical ideas, develop engineering capability and transform
-            research concepts into working prototypes.
-
-        </p>
-
-
-
-        <div class="project-list reveal">
-
-
-            <article class="project">
-
-                <h3>
-                    Offline Knowledge Intelligence System
-                </h3>
-
-                <p>
-
-                    An experimental local AI architecture using Wikipedia data,
-                    document chunking, semantic retrieval and
-                    retrieval-augmented generation to explore offline knowledge
-                    systems.
-
-                </p>
-
-                <span class="status">
-                    In Development
-                </span>
-
-            </article>
-
-
-
-            <article class="project">
-
-                <h3>
-                    Embedded Operating Environment
-                </h3>
-
-                <p>
-
-                    Experimental software architecture for ESP32-class
-                    hardware exploring graphical interfaces, wireless
-                    communication, system resources and embedded computing.
-
-                </p>
-
-                <span class="status">
-                    Prototype
-                </span>
-
-            </article>
-
-
-
-            <article class="project">
-
-                <h3>
-                    Computational Physics Architecture
-                </h3>
-
-                <p>
-
-                    Research into modular computational engines capable of
-                    modeling physical systems and supporting future
-                    intelligent simulation environments.
-
-                </p>
-
-                <span class="status">
-                    Research
-                </span>
-
-            </article>
-
-
-
-            <article class="project">
-
-                <h3>
-                    Temporal Memory for Language Models
-                </h3>
-
-                <p>
-
-                    Research exploring how language models can represent,
-                    retrieve and reason over temporal information and evolving
-                    events.
-
-                </p>
-
-                <span class="status">
-                    Research
-                </span>
-
-            </article>
-
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     ENGINEERING PRINCIPLES
-============================================================ -->
-
-<section id="principles" class="section-border">
-
-    <div class="container">
-
-        <span class="eyebrow">
-            Engineering Philosophy
-        </span>
-
-
-        <div class="principles-layout">
-
-
-            <div>
-
-                <h2 class="section-title">
-
-                    Understand the system.
-                    Then engineer it.
-
-                </h2>
-
-            </div>
-
-
-
-            <div class="reveal">
-
-
-                <div class="principle">
-
-                    <h3>
-                        First-Principles Engineering
-                    </h3>
-
-                    <p>
-
-                        Complex systems are approached by understanding their
-                        fundamental components rather than treating technology
-                        as an opaque abstraction.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <h3>
-                        Research Through Prototyping
-                    </h3>
-
-                    <p>
-
-                        Ideas become meaningful when they can be implemented,
-                        measured, tested and improved through real engineering
-                        work.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <h3>
-                        Local Intelligence
-                    </h3>
-
-                    <p>
-
-                        We explore systems capable of processing information
-                        locally, increasing technological independence,
-                        resilience and control over computing infrastructure.
-
-                    </p>
-
-                </div>
-
-
-
-                <div class="principle">
-
-                    <h3>
-                        Long-Term Technical Capability
-                    </h3>
-
-                    <p>
-
-                        ConectOut focuses on building knowledge, engineering
-                        capability and foundational technology rather than
-                        pursuing short-lived technology trends.
-
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- ============================================================
-     FOUNDATION
-============================================================ -->
-
-<section id="foundation" class="section-border">
-
-    <div class="container">
-
-        <div class="foundation-box reveal">
-
-
-            <div>
-
-                <span class="eyebrow">
-                    ConectOut Foundation
-                </span>
-
-                <h2>
-                    Supporting learning, research and technical collaboration.
-                </h2>
-
-                <p>
-
-                    ConectOut Foundation is an initiative focused on technical
-                    education, collaborative projects and opportunities for
-                    students and independent developers to participate in
-                    practical engineering and research.
-
-                </p>
-
-
-                <div style="margin-top:35px;">
-
-                    <a href="cof.html" class="button-secondary">
-                        Explore Foundation
-                    </a>
-
-                </div>
-
-            </div>
-
-
-
-            <ul class="foundation-list">
-
-                <li>
-                    Technical Learning
-                </li>
-
-                <li>
-                    Research Collaboration
-                </li>
-
-                <li>
-                    Experimental Projects
-                </li>
-
-                <li>
-                    Student Engineering Opportunities
-                </li>
-
+            <ul class="nav-links">
+                <li id="nav-products" class="active" onclick="switchView('products')">Products & Apps</li>
+                <li id="nav-ecosystem" onclick="switchView('ecosystem')">Core Ecosystem</li>
+                <li id="nav-pipeline" onclick="switchView('pipeline')">Dev Pipeline</li>
             </ul>
-
-
         </div>
+    </header>
 
+    <!-- TAB VIEW 1: PRODUCTS & APPS -->
+    <div id="view-products" class="app-view view-active">
+        <main>
+            <section class="section-hero container hero-grid">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Universal Software. <br><span class="gradient-text">Boundless Ecosystem.</span>
+                    </h1>
+                    <p class="hero-description">
+                        ConectOut builds the foundational software running the modern world. From open-source mobile operating systems and low-level hardware drivers, to proprietary creative suites, educational platforms, and immersive gaming engines.
+                    </p>
+                    <div class="hero-cta-group">
+                        <div class="btn-premium" onclick="switchView('ecosystem')">Explore Ecosystem</div>
+                        <div class="btn-secondary" onclick="switchView('pipeline')">View Architecture</div>
+                    </div>
+                </div>
+                
+                <div class="glass-dashboard-shell">
+                    <div class="shell-header">
+                        <div style="font-family: monospace; font-size: 11px; color: var(--text-muted);">GLOBAL DEPLOYMENT TELEMETRY</div>
+                    </div>
+                    <div class="shell-body">
+                        <div class="dashboard-metric-strip">
+                            <div class="mini-card">
+                                <span style="color:var(--text-muted); font-size:12px; font-weight: 600;">ACTIVE GLOBAL INSTALLS</span>
+                                <span class="m-value">4.2 Billion</span>
+                            </div>
+                            <div class="mini-card">
+                                <span style="color:var(--text-muted); font-size:12px; font-weight: 600;">OPEN SOURCE COMMITS</span>
+                                <span class="m-value text-accent">18.4M / yr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-features container">
+                <h2 style="font-size: var(--fs-h1); text-align: center; margin-bottom: 1rem;">Platform Architecture</h2>
+                <p style="color: var(--text-muted); text-align: center; max-width: 600px; margin: 0 auto;">We engineer applications across every layer of the technology stack, ensuring seamless integration between hardware and user experience.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Operating Systems & Drivers</h3>
+                        <p>Core kernel development for desktop and mobile devices. We build lightweight, secure, open-source OS frameworks and universal hardware drivers that power billions of devices worldwide.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Creative & Enterprise Apps</h3>
+                        <p>Proprietary, professional-grade software suites designed for creators and corporations. Industry-leading tools for video editing, graphic design, document management, and cloud collaboration.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Gaming & Education</h3>
+                        <p>High-performance game engines powering AAA titles and interactive virtual learning environments. Bridging entertainment and education through cutting-edge 3D rendering and physics simulation.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
 
-</section>
+    <!-- TAB VIEW 2: CORE ECOSYSTEM -->
+    <div id="view-ecosystem" class="app-view">
+        <main class="container" style="padding-top: 12rem;">
+            <h2 class="hero-title">The Software Matrix<br><span class="gradient-text">6 Core Development Pillars</span></h2>
+            <p class="hero-description" style="max-width: 750px;">ConectOut engineers a diverse portfolio of technologies spanning open-source foundations and proprietary enterprise solutions, unifying the digital experience.</p>
 
-
-
-<!-- ============================================================
-     ABOUT
-============================================================ -->
-
-<section id="about" class="section-border">
-
-    <div class="container about-layout">
-
-        <div>
-
-            <span class="eyebrow">
-                About ConectOut
-            </span>
-
-            <h2 class="section-title">
-                Building technical capability for complex systems.
-            </h2>
-
-        </div>
-
-
-        <div class="about-text reveal">
-
-            <p>
-
-                ConectOut is an independent technology research and development
-                initiative exploring artificial intelligence, embedded
-                computing, computational simulation and experimental software
-                architectures.
-
-            </p>
-
-            <p>
-
-                Our work focuses on learning how complex technological systems
-                operate, developing experimental prototypes and gradually
-                building the engineering capability required to research more
-                advanced intelligent and autonomous systems.
-
-            </p>
-
-            <p>
-
-                ConectOut is at an early stage of development. The projects
-                presented here represent ongoing research, experiments and
-                prototypes rather than claims of deployed commercial or
-                operational systems.
-
-            </p>
-
-        </div>
-
+            <div class="features-grid" style="margin-bottom: 4rem;">
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Open Source Initiatives</h3>
+                    <p>Community-driven mobile platforms, programming languages, and web frameworks. We believe the base layers of the internet should be accessible, modifiable, and transparent to all developers.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Proprietary Pro Tools</h3>
+                    <p>Advanced creative suites competing with industry giants. Our closed-source vector, raster, and video rendering applications are the standard for creative professionals demanding absolute performance.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Universal Driver Logic</h3>
+                    <p>Low-level engineering that makes hardware communicate seamlessly. From GPU instruction sets to peripheral plug-and-play modules, our driver architectures eliminate hardware fragmentation.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Educational Platforms</h3>
+                    <p>Interactive, gamified learning software deployed in schools globally. Utilizing AI to adapt curriculums in real-time, bridging the gap between traditional learning and modern technology.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">ConectOut Game Engine</h3>
+                    <p>A next-generation real-time 3D creation tool used by top game studios. Features proprietary physics solvers, dynamic global illumination, and cross-platform compilation capabilities.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 style="color: var(--accent);">Cloud Productivity</h3>
+                    <p>A suite of cloud-synced applications spanning email, spreadsheets, word processing, and team communication. Built on zero-trust architecture to protect corporate and personal data.</p>
+                </div>
+            </div>
+        </main>
     </div>
 
-</section>
+    <!-- TAB VIEW 3: DEV PIPELINE -->
+    <div id="view-pipeline" class="app-view">
+        <main class="container" style="padding-top: 12rem;">
+            <h2 class="hero-title">Continuous Deployment<br><span class="gradient-text">Unified Development Architecture</span></h2>
+            <p class="hero-description" style="max-width: 750px;">Managing everything from kernel drivers to cloud apps requires rigorous infrastructure. Our deployment pipeline ensures rapid, secure updates across millions of endpoints seamlessly.</p>
 
-
-
-<!-- ============================================================
-     CONTACT
-============================================================ -->
-
-<section class="contact section-border">
-
-    <div class="container reveal">
-
-        <span class="eyebrow">
-            Collaboration
-        </span>
-
-        <h2>
-            Interested in research, engineering or collaboration?
-        </h2>
-
-        <p>
-
-            We welcome conversations with students, researchers, engineers,
-            institutions and organizations interested in deep technology and
-            experimental engineering.
-
-        </p>
-
-        <a
-            href="mailto:hello@conectout.com"
-            class="button-primary"
-        >
-            Contact ConectOut
-        </a>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- ============================================================
-     FOOTER
-============================================================ -->
-
-<footer>
-
-    <div class="container">
-
-
-        <div class="footer-grid">
-
-
-            <div>
-
-                <div class="logo">
-
-                    <svg viewBox="0 0 24 24" fill="none">
-
-                        <path
-                            d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z"
-                            stroke="white"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="1.5"
-                            fill="white"
-                        />
-
-                    </svg>
-
-                    ConectOut Technology
-
+            <div class="pipeline-container" style="margin-bottom: 5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <span class="m-label" style="color: var(--accent); font-size: 13px; font-weight: 600;">CI/CD DEPLOYMENT PIPELINE</span>
+                    <span id="solver-hz" style="font-family: monospace; font-size: 12px; color: var(--text-muted);">SYSTEM NOMINAL</span>
+                </div>
+                
+                <div class="pipeline-step active-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Cross-Platform Compilation</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Unified codebase compiling native binaries simultaneously for mobile ARM architectures, desktop x86, and cloud servers.</p>
+                    </div>
+                    <span class="step-meta">STAGE 1</span>
                 </div>
 
+                <div class="pipeline-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Automated QA & Sandboxing</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Machine learning-driven unit testing, vulnerability scanning, and strict memory-safety validation before deployment.</p>
+                    </div>
+                    <span class="step-meta">STAGE 2</span>
+                </div>
 
-                <p class="footer-description">
-
-                    Independent research and engineering across artificial
-                    intelligence, embedded systems, computational simulation
-                    and experimental software architectures.
-
-                </p>
-
+                <div class="pipeline-step">
+                    <div>
+                        <h4 style="font-size: 14px; margin-bottom: 2px;">Global OTA Distribution</h4>
+                        <p style="font-size: 12px; color: var(--text-muted);">Phased over-the-air rollouts to our global CDN, pushing kernel updates, driver patches, and app features instantly.</p>
+                    </div>
+                    <span class="step-meta">STAGE 3</span>
+                </div>
             </div>
 
-
-
-            <div>
-
-                <h4 class="footer-title">
-                    Research
-                </h4>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="#research">
-                            Artificial Intelligence
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#research">
-                            Embedded Systems
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#research">
-                            Simulation
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#research">
-                            Autonomous Systems
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-
-            <div>
-
-                <h4 class="footer-title">
-                    Organization
-                </h4>
-
-                <ul class="footer-links">
-
-                    <li>
-                        <a href="#projects">
-                            Projects
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#about">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="cof.html">
-                            ConectOut Foundation
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="mailto:hello@conectout.com">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 ConectOut Technology
-            </span>
-
-            <span>
-                Research • Engineering • Intelligence
-            </span>
-
-        </div>
-
-
+            <section class="data-sheet-section">
+                <h2 class="data-sheet-title">Core Technologies & Frameworks</h2>
+                <table class="spec-table">
+                    <thead>
+                        <tr>
+                            <th>Framework ID</th>
+                            <th>Technology Sector</th>
+                            <th>Implementation Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="parameter">OS_KERNEL_V4</td>
+                            <td>Microkernel Architecture</td>
+                            <td>Powers our open-source mobile and IoT operating systems, ensuring minimal overhead and maximum hardware abstraction.</td>
+                        </tr>
+                        <tr>
+                            <td class="parameter">DRV_SYNC_99</td>
+                            <td>Universal Driver Protocol</td>
+                            <td>Standardized instruction sets ensuring plug-and-play compatibility across disparate PC and peripheral hardware ecosystems.</td>
+                        </tr>
+                        <tr>
+                            <td class="parameter">APP_SANDBOX_X</td>
+                            <td>Application Isolation</td>
+                            <td>Isolates proprietary consumer apps and gaming engines to guarantee user data privacy and prevent system-level interference.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
     </div>
 
-</footer>
+    <!-- FOOTER SECTION -->
+    <footer class="site-footer">
+        <div class="glow-blob blob-2"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-wrapper" style="margin-bottom: 1rem;" onclick="switchView('products')">
+                        <svg class="logo-icon-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c1.5-2 4-2.5 5.5-1s1.5 3.5-.5 3c-2-.5-3.5-1.5-5-2-1.5-.5-3-1-5-2-2-.5-2.5 3-1 4.5s4 1 5.5-1.5z" stroke="#38BDF8" stroke-width="2" stroke-linecap='round' stroke-linejoin='round'/><circle cx="12" cy="12" r="1.5" fill="#FFF"/></svg>
+                        <span>ConectOut</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: var(--fs-sm); max-width: 250px; margin-top: 1rem;">
+                        Building the global software ecosystem. From foundational operating systems to world-class applications.
+                    </p>
+                    <ul class="footer-links" style="margin-top: 1rem;">
+                        <li><a href="cof.html">ConectOut Foundation (Open Source)</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Core Ecosystem</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('ecosystem')">Creative Suites</li>
+                        <li onclick="switchView('ecosystem')">Game Engine</li>
+                        <li onclick="switchView('ecosystem')">Cloud Productivity</li>
+                        <li onclick="switchView('ecosystem')">Educational Tools</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Platforms</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('products')">Mobile OS</li>
+                        <li onclick="switchView('products')">Desktop OS</li>
+                        <li onclick="switchView('products')">Hardware Drivers</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Developers</h4>
+                    <ul class="footer-links">
+                        <li onclick="switchView('pipeline')">Open Source Repos</li>
+                        <li onclick="switchView('pipeline')">API Documentation</li>
+                        <li onclick="switchView('pipeline')">CI/CD Pipelines</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 ConectOut Technology. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="mailto:hello@conectout.com">hello@conectout.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-
-
-<!-- ============================================================
-     JAVASCRIPT
-============================================================ -->
-
-<script>
-
-    /*
-    ============================================================
-    MOBILE NAVIGATION
-    ============================================================
-    */
-
-    const menuButton = document.getElementById("menuButton");
-
-    const navLinks = document.getElementById("navLinks");
-
-
-    menuButton.addEventListener("click", function () {
-
-        navLinks.classList.toggle("active");
-
-    });
-
-
-
-    document.querySelectorAll(".nav-links a").forEach(function(link) {
-
-        link.addEventListener("click", function() {
-
-            navLinks.classList.remove("active");
-
-        });
-
-    });
-
-
-
-    /*
-    ============================================================
-    SCROLL REVEAL
-    ============================================================
-    */
-
-    const revealElements = document.querySelectorAll(".reveal");
-
-
-    const observer = new IntersectionObserver(
-
-        function(entries) {
-
-            entries.forEach(function(entry) {
-
-                if(entry.isIntersecting) {
-
-                    entry.target.classList.add("visible");
-
-                    observer.unobserve(entry.target);
-
-                }
-
+    <!-- INTERACTIVE VIEW CONTROL SCRIPT -->
+    <script>
+        function switchView(viewId) {
+            document.querySelectorAll('.app-view').forEach(view => {
+                view.classList.remove('view-active');
+            });
+            document.querySelectorAll('.nav-links li').forEach(tab => {
+                tab.classList.remove('active');
             });
 
-        },
+            if(viewId === 'products') {
+                document.getElementById('view-products').classList.add('view-active');
+                document.getElementById('nav-products').classList.add('active');
+            } else if(viewId === 'ecosystem') {
+                document.getElementById('view-ecosystem').classList.add('view-active');
+                document.getElementById('nav-ecosystem').classList.add('active');
+            } else if(viewId === 'pipeline') {
+                document.getElementById('view-pipeline').classList.add('view-active');
+                document.getElementById('nav-pipeline').classList.add('active');
+            }
 
-        {
-
-            threshold: 0.12
-
+            window.scrollTo({ top: 0, behavior: 'instant' });
         }
 
-    );
+        // Live Simulated Sequencing Loop on Pipeline Tab
+        setInterval(() => {
+            const steps = document.querySelectorAll('.pipeline-step');
+            if(steps.length === 0) return;
+            
+            let activeIndex = 0;
+            steps.forEach((step, index) => {
+                if(step.classList.contains('active-step')) {
+                    activeIndex = index;
+                    step.classList.remove('active-step');
+                }
+            });
 
-
-    revealElements.forEach(function(element) {
-
-        observer.observe(element);
-
-    });
-
-</script>
-
-
+            let nextIndex = (activeIndex + 1) % steps.length;
+            steps[nextIndex].classList.add('active-step');
+            
+        }, 3000);
+    </script>
 </body>
 </html>
